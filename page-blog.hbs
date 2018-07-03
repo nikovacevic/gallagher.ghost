@@ -1,0 +1,14 @@
+{{!< default}}
+{{!-- Everything inside the #post tags pulls data from the post --}}
+{{#post}}
+<main>
+  <h3>Am I here??</h3>
+  <p>{{title}}</p>
+  {{#get "posts" limit="5" include="tags,author"}}
+    {{#foreach posts}}
+      <p>Hello?</p>
+      <p>{{title}}</p>
+    {{/foreach}}
+  {{/get}}
+</main>
+{{/post}}

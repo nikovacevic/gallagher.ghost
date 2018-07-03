@@ -1,0 +1,103 @@
+{{!< default}}
+<main class="index">
+  {{#if @blog.cover_image}}
+    <section class="atf" style="background-image: url({{@blog.cover_image}});"></section>
+  {{/if}}
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <p class="centered-statement">{{@blog.description}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="flex-gallery-container">
+    <div class="flex-gallery-item">
+      <a href="#">
+        <img src="{{asset "images/instagram/insta1.png"}}" alt="">
+      </a>
+    </div>
+    <div class="flex-gallery-item">
+      <a href="#">
+        <img src="{{asset "images/instagram/insta2.png"}}" alt="">
+      </a>
+    </div>
+    <div class="flex-gallery-item">
+      <a href="#">
+        <img src="{{asset "images/instagram/insta3.png"}}" alt="">
+      </a>
+    </div>
+    <div class="flex-gallery-item">
+      <a href="#">
+        <img src="{{asset "images/instagram/insta4.png"}}" alt="">
+      </a>
+    </div>
+    <div class="flex-gallery-item">
+      <a href="#">
+        <img src="{{asset "images/instagram/insta5.png"}}" alt="">
+      </a>
+    </div>
+    <div class="flex-gallery-item">
+      <a href="#">
+        <img src="{{asset "images/instagram/insta6.png"}}" alt="">
+      </a>
+    </div>
+    <div class="flex-gallery-item d-none d-md-block">
+      <a href="#">
+        <img src="{{asset "images/instagram/insta7.png"}}" alt="">
+      </a>
+    </div>
+    <div class="flex-gallery-item d-none d-md-block">
+      <a href="#">
+        <img src="{{asset "images/instagram/insta8.png"}}" alt="">
+      </a>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 card-container">
+          {{#get "posts" limit="4"}}
+            {{#foreach posts}}
+              {{#if @first}}
+                <article class="post-card large">
+                  <a class="post-card-link" href="{{url}}">
+                    <h2 class="title">{{title}}</h2>
+                    <p class="date">{{date dateToFormat format="MMMM DD, YYYY"}}</p>
+                    <p>{{excerpt words="60"}}...</p>
+                  </a>
+                </article>
+              {{else}}
+                <article class="post-card">
+                  <a class="post-card-link" href="{{url}}" style="height: 100%; display: flex; flex-flow: column; justify-content: space-between;">
+                    <h2 class="title">{{title}}</h2>
+                    <p class="date">{{date dateToFormat format="MMMM DD, YYYY"}}</p>
+                  </a>
+                </article>
+              {{/if}}
+            {{/foreach}}
+          {{/get}}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="fixed-image" style="background-image: url('{{asset "images/home/fixed3.jpg"}}');"></section>
+  <section class="container partner-logo-container">
+    <div class="partner-logo">
+      <a href="#" target="_blank"><img src="{{asset "images/logos/patagonia.png"}}" /></a>
+    </div>
+    <div class="partner-logo">
+      <a href="#" target="_blank"><img src="{{asset "images/logos/la-sportiva.png"}}" /></a>
+    </div>
+    <div class="partner-logo">
+      <a href="#" target="_blank"><img src="{{asset "images/logos/petzl.png"}}" /></a>
+    </div>
+    <div class="partner-logo">
+      <a href="#" target="_blank"><img src="{{asset "images/logos/revant.png"}}" /></a>
+    </div>
+    <div class="partner-logo">
+      <a href="#" target="_blank"><img src="{{asset "images/logos/honey-stinger.png"}}" /></a>
+    </div>
+  </section>
+</main>
