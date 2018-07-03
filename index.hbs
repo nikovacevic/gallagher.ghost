@@ -8,11 +8,24 @@
       <div class="row">
         <div class="col-sm-12 text-center">
           <p class="centered-statement">{{@blog.description}}</p>
+          {{#get "posts" slug="home" as |post|}}
+            {{#if post}}
+              {{#post}}
+                <hr/>
+                <div class="home-content">
+                  {{content}}
+                </div>
+                <style media="screen">
+                  .home-content p { text-align: left; }
+                </style>
+              {{/post}}
+            {{/if}}
+          {{/get}}
         </div>
       </div>
     </div>
   </section>
-  <div class="flex-gallery-container">
+  <div class="flex-gallery-container" style="margin: 30px 0;">
     <div class="flex-gallery-item">
       <a href="#">
         <img src="{{asset "images/instagram/insta1.png"}}" alt="">
@@ -55,32 +68,41 @@
     </div>
   </div>
   <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 card-container">
-          {{#get "posts" limit="4"}}
-            {{#foreach posts}}
-              {{#if @first}}
-                <article class="post-card large">
-                  <a class="post-card-link" href="{{url}}">
-                    <h2 class="title">{{title}}</h2>
-                    <p class="date">{{date dateToFormat format="MMMM DD, YYYY"}}</p>
-                    <p>{{excerpt words="60"}}...</p>
-                  </a>
-                </article>
-              {{else}}
-                <article class="post-card">
-                  <a class="post-card-link" href="{{url}}" style="height: 100%; display: flex; flex-flow: column; justify-content: space-between;">
-                    <h2 class="title">{{title}}</h2>
-                    <p class="date">{{date dateToFormat format="MMMM DD, YYYY"}}</p>
-                  </a>
-                </article>
-              {{/if}}
-            {{/foreach}}
-          {{/get}}
-        </div>
-      </div>
+    <div class="container card-container">
+      {{#get "posts" limit="4"}}
+        {{#foreach posts}}
+          {{#if @first}}
+            <article class="post-card large">
+              <a class="post-card-link" href="{{url}}">
+                {{#if feature_image}}
+                  <div class="post-card-image" style="height: 240px; border-radius: 4px 4px 0 0; background-image: url({{feature_image}}); background-position: center; background-size: cover;"></div>
+                {{/if}}
+                <div class="post-card-content">
+                  <h2 class="title">{{title}}</h2>
+                  <p class="date">{{date dateToFormat format="MMMM D, YYYY"}}</p>
+                  <p>{{excerpt words="60"}}...</p>
+                </div>
+              </a>
+            </article>
+          {{else}}
+            <article class="post-card">
+              <a class="post-card-link" href="{{url}}">
+                {{#if feature_image}}
+                  <div class="post-card-image" style="height: 120px; border-radius: 4px 4px 0 0; background-image: url({{feature_image}}); background-position: center; background-size: cover;"></div>
+                {{/if}}
+                <div class="post-card-content">
+                  <h2 class="title">{{title}}</h2>
+                  <p class="date">{{date dateToFormat format="MMMM D, YYYY"}}</p>
+                </div>
+              </a>
+            </article>
+          {{/if}}
+        {{/foreach}}
+      {{/get}}
     </div>
+    <p class="text-center">
+      <a href="/blog" role="button" class="btn btn-outline-dark">Check out the full blog &raquo;</a>
+    </p>
   </section>
   <section class="fixed-image" style="background-image: url('{{asset "images/home/fixed3.jpg"}}');"></section>
   <section class="container partner-logo-container">

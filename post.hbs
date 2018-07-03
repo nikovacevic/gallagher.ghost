@@ -1,21 +1,24 @@
 {{!< default}}
 {{#post}}
-  <main>
-    <div class="container">
-      <article class="{{post_class}} {{#unless feature_image}}no-image{{/unless}}">
-        <section class="post-full-meta">
-          <time class="post-full-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
-          {{#primary_tag}}
-              <span class="date-divider">/</span> <a href="{{url}}">{{name}}</a>
-          {{/primary_tag}}
+  <main class="post">
+    {{#if feature_image}}
+      <figure class="post-full-image" style="
+        background-image: url({{feature_image}});
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        width: 100vw;"
+      >
+      </figure>
+    {{/if}}
+    <div class="container post-container {{#unless feature_image}}no-image{{/unless}}">
+      <article class="post {{post_class}}">
+        <h1 class="title" style="text-align: center; margin: 0.4em 0;">{{title}}</h1>
+        <section class="meta" style="text-align: center; margin: 0.6em 0; text-transform: uppercase;">
+          <time class="date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
         </section>
-        <h1 class="post-full-title">{{title}}</h1>
-        {{#if feature_image}}
-          <figure class="post-full-image" style="background-image: url({{feature_image}})">
-          </figure>
-        {{/if}}
-        <section class="post-full-content">
-            {{content}}
+        <section class="content">
+          {{content}}
         </section>
       </article>
     </div>

@@ -11,7 +11,7 @@ $(function () {
     $("section.atf").css('margin-top', $('header').height());
 
     // Set fixed images
-    $("section.fixed-image").css('height', UI.viewportHeight*0.75);
+    $("section.fixed-image").css('height', UI.viewportHeight*0.45);
     setTimeout(function () {
       $("body").removeClass('loading');
     }, 250)
