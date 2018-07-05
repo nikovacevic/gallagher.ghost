@@ -6,9 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
-      "name": "Niko Kovacevic",
-      "email": "nikovacevic@gmail.com",
-      "url": "https://nikovacevic.io/"
+    "name": "Niko Kovacevic",
+    "email": "nikovacevic@gmail.com",
+    "url": "https://nikovacevic.io/"
   },
   "license": "ISC"
 }

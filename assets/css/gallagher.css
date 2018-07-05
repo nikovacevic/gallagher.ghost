@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Questrial');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto|Questrial'); */
+@import url('https://fonts.googleapis.com/css?family=Roboto|Alfa+Slab+One|Montserrat');
+
 
 html {
   min-height: 100%;
@@ -12,8 +14,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: #FCFCFC;
-  color: #333;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #303030;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
@@ -74,14 +76,14 @@ a.tile:hover h2 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Questrial", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Alfa Slab One", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-h1 { color: #333; font-size: 2.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; }
-h2 { color: #333; font-size: 2.0em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; }
-h3 { color: #333; font-size: 1.8em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
-h4 { color: #333; font-size: 1.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
-h5 { color: #666; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
-h6 { color: #666; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
+h1 { color: #303030; font-size: 2.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; }
+h2 { color: #303030; font-size: 2.0em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; }
+h3 { color: #303030; font-size: 1.8em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
+h4 { color: #303030; font-size: 1.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
+h5 { color: #606060; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
+h6 { color: #606060; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
 
 @media screen and (max-width: 769px) {
   h1 { font-size: 2.0em; line-height: 1.0; margin: 1em 0 0.6em 0; }
@@ -146,12 +148,14 @@ header>nav {
   padding: 0 12px;
   background: transparent;
   transition: all 0.4s;
-  font-family: "Questrial", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1.2px;
   font-size: 1em;
 }
 header>nav.scrolled {}
-header>nav #brand {}
+header>nav #brand {
+  font-family: "Alfa Slab One", "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 header>nav #primary-nav {
   text-transform: uppercase;
   font-size: 0.8em;
@@ -368,6 +372,10 @@ iframe {
   flex: 1 0 auto;
 }
 
+#instagram-feed {
+  margin: 36px 0;
+  /* box-shadow: 0 -3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+}
 .flex-gallery-container {
   display: flex;
   flex-flow: row;
@@ -382,30 +390,42 @@ iframe {
   margin: 0;
   padding: 0;
   height: auto;
-}
-.flex-gallery-container .flex-gallery-item a {
-  display: block;
-  z-index: 100;
   position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
-.flex-gallery-container .flex-gallery-item img {
-  width: 100%;
-  vertical-align: top;
+.flex-gallery-container .flex-gallery-item a {}
+.flex-gallery-container .flex-gallery-item a div.img-container {
+  display: flex;
+  flex-flow: column;
 }
-.flex-gallery-container .flex-gallery-item a:after {
-  content: '\A';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
+.flex-gallery-container .flex-gallery-item a div.img-mask {
+  background-color: rgba(0,0,0,.1);
+  bottom: 0;
   left: 0;
-  background: rgba(0,0,0,0.4);
+  position: absolute;
+  right: 0;
+  top: 0;
   opacity: 0;
-  transition: all 0.4s;
-  -webkit-transition: all 0.4s;
+  transition: opacity 0.2s;
 }
-.flex-gallery-container .flex-gallery-item a:hover:after {
-  opacity:1;
+.flex-gallery-container .flex-gallery-item a:hover div.img-mask {
+  opacity: 1;
+}
+.flex-gallery-container .flex-gallery-item a div.img-container img {
+  width: 100%;
+  height: auto;
+  flex: 0 0 auto;
+  /* transition: box-shadow 0.2s; */
+}
+.flex-gallery-container .flex-gallery-item a:hover div.img-container img {
+  /* box-shadow:
+    0 -3px 6px rgba(0,0,0,0.16),
+    3px 0 6px rgba(0,0,0,0.16),
+    -3px 0 6px rgba(0,0,0,0.16),
+    0 3px 9px rgba(0,0,0,0.23);
+  z-index: 999; */
 }
 @media screen and (max-width: 769px) {
   .flex-gallery-container .flex-gallery-item {
@@ -463,20 +483,19 @@ footer {
   justify-content: space-between;
 }
 footer .social-media-nav {
-  background: #202028;
-  color: #F0F0F0;
+  background: #F0F0F0;
 }
 footer .social-media-nav li a,
 footer .social-media-nav li a:visited {
-  color: #E8E8E8;
+  color: #505050;
 }
 footer .social-media-nav li a:active,
 footer .social-media-nav li a:hover {
-  color: #F8F8F8;
+  color: #000000;
 }
 footer p.copyright {
   text-align: center;
   font-size: 0.85em;
-  color: #666;
+  color: #606060;
   margin: 40px 0 30px 0;
 }
