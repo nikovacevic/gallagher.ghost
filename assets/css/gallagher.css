@@ -363,6 +363,33 @@ article.post {
   background: #FEFEFE;
 }
 
+.next-prev {
+  display: flex;
+  flex-flow: row;
+  margin-bottom: 40px;
+}
+.next-prev .prev-post,
+.next-prev .next-post {
+  flex: 1 0 50%;
+  display: flex;
+  flex-flow: column;
+}
+.next-prev .prev-post .prev-post-card-container,
+.next-prev .next-post .next-post-card-container {
+  flex: 1 0 auto;
+  margin: 0 12px;
+  display: flex;
+}
+.next-prev .prev-post .prev-arrow,
+.next-prev .next-post .next-arrow {
+  flex: 0 0 auto;
+  text-align: center;
+  margin: 6px 0;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+}
+
 iframe {
   max-width: 100%;
 }
