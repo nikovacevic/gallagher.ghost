@@ -544,7 +544,7 @@ footer .social-media-nav li a:active,
 footer .social-media-nav li a:hover {
   color: #000000;
 }
-footer p.copyright {
+footer .copyright {
   text-align: center;
   font-size: 0.85em;
   color: #606060;
