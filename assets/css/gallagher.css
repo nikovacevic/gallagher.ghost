@@ -1,5 +1,5 @@
 /* @import url('https://fonts.googleapis.com/css?family=Roboto|Questrial'); */
-@import url('https://fonts.googleapis.com/css?family=Roboto|Alfa+Slab+One|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Roboto|Roboto+Slab');
 
 
 html {
@@ -15,7 +15,7 @@ body {
   padding: 0;
   background-color: #FCFCFC;
   color: #303030;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
@@ -76,10 +76,10 @@ a.tile:hover h2 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Alfa Slab One", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-h1 { color: #303030; font-size: 2.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; }
-h2 { color: #303030; font-size: 2.0em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; }
+h1 { color: #303030; font-size: 2.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; font-weight: 700; }
+h2 { color: #303030; font-size: 2.0em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; font-weight: 700; }
 h3 { color: #303030; font-size: 1.8em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
 h4 { color: #303030; font-size: 1.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
 h5 { color: #606060; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
@@ -148,13 +148,14 @@ header>nav {
   padding: 0 12px;
   background: transparent;
   transition: all 0.4s;
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1.2px;
   font-size: 1em;
 }
 header>nav.scrolled {}
 header>nav #brand {
-  font-family: "Alfa Slab One", "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
 header>nav #primary-nav {
   text-transform: uppercase;
@@ -213,6 +214,7 @@ nav#full-screen-nav {
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 nav#full-screen-nav.visible {
   transform: translateY(0);
@@ -232,7 +234,7 @@ nav#full-screen-nav ul li a {
   color: #202028;
 }
 nav#full-screen-nav ul li a:hover {
-  color: #202028;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -286,6 +288,9 @@ article.post-card {
   flex: 0 0 31%;
   margin-bottom: 18px;
   transition: box-shadow 0.12s ease-in;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 article.post-card-placeholder {
   flex: 0 0 31%;
@@ -300,9 +305,12 @@ article.post-card:hover {
 }
 article.post-card a.post-card-link {
   position: relative;
-  display: block;
   overflow: hidden;
   color: inherit;
+  flex: 1 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 article.post-card .title {
   font-size: 1.0em;
@@ -401,7 +409,7 @@ iframe {
   flex-flow: column;
 }
 .flex-gallery-container .flex-gallery-item a div.img-mask {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0,0,0,.16);
   bottom: 0;
   left: 0;
   position: absolute;
@@ -409,9 +417,25 @@ iframe {
   top: 0;
   opacity: 0;
   transition: opacity 0.2s;
+  display: flex;
 }
 .flex-gallery-container .flex-gallery-item a:hover div.img-mask {
   opacity: 1;
+}
+.flex-gallery-container .flex-gallery-item a div.img-mask .location {
+  text-align: center;
+  margin: auto auto;
+  color: #F0F0F0;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
+  text-shadow: 0 0 3px rgba(0,0,0,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.flex-gallery-container .flex-gallery-item a div.img-container {
+  background-size: cover;
+  background-position: center;
+  padding-top: 100%;
 }
 .flex-gallery-container .flex-gallery-item a div.img-container img {
   width: 100%;
