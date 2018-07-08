@@ -1,6 +1,6 @@
 {{!< default}}
 {{#post}}
-<main class="blog" style="padding-bottom: 20px;">
+<main class="blog">
   {{#get "posts" slug="blog" as |post|}}
     {{#if post}}
       {{#post}}
@@ -11,13 +11,13 @@
     {{/if}}
   {{/get}}
   {{#get "posts" limit="10"}}
-    <div class="container card-container flex-grow" style="margin-top: 20px;">
+    <div class="container card-container flex-grow">
       {{#foreach posts}}
         {{#if @first}}
           <article class="post-card large">
             <a class="post-card-link" href="{{url}}">
               {{#if feature_image}}
-                <div class="post-card-image" style="height: 240px; border-radius: 4px 4px 0 0; background-image: url({{feature_image}}); background-position: center; background-size: cover;"></div>
+                <div class="post-card-image" style="background-image: url({{feature_image}});"></div>
               {{/if}}
               <div class="post-card-content">
                 <h2 class="title">{{title}}</h2>
@@ -27,17 +27,19 @@
             </a>
           </article>
         {{else}}
-          <article class="post-card">
-            <a class="post-card-link" href="{{url}}">
-              {{#if feature_image}}
-                <div class="post-card-image" style="height: 120px; border-radius: 4px 4px 0 0; background-image: url({{feature_image}}); background-position: center; background-size: cover;"></div>
-              {{/if}}
-              <div class="post-card-content">
-                <h2 class="title">{{title}}</h2>
-                <p class="date">{{date dateToFormat format="MMMM D, YYYY"}}</p>
-              </div>
-            </a>
-          </article>
+          <div class="card-wrapper">
+            <article class="post-card">
+              <a class="post-card-link" href="{{url}}">
+                {{#if feature_image}}
+                  <div class="post-card-image" style="background-image: url({{feature_image}});"></div>
+                {{/if}}
+                <div class="post-card-content">
+                  <h2 class="title">{{title}}</h2>
+                  <p class="date">{{date dateToFormat format="MMMM D, YYYY"}}</p>
+                </div>
+              </a>
+            </article>
+          </div>
         {{/if}}
       {{/foreach}}
     </div>

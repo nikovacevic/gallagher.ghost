@@ -80,7 +80,7 @@ $(function ($) {
 
         $.get(nextPage, function (content) {
             var parse = document.createRange().createContextualFragment(content);
-            var posts = parse.querySelectorAll('.post-card');
+            var posts = parse.querySelectorAll('.card-wrapper');
             if (posts.length) {
                 [].forEach.call(posts, function (post) {
                     $result[0].appendChild(post);

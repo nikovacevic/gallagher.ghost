@@ -252,6 +252,7 @@ main.blog,
 main.page,
 main.post {
   margin-top: 56px;
+  margin-bottom: 20px;
 }
 
 section.atf,
@@ -279,22 +280,30 @@ section.fixed-image {
   text-align: left;
 }
 
+main.blog .card-container {
+  margin-top: 20px;
+}
 .card-container {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+}
+.card-wrapper  {
+  flex: 0 0 33.3333%;
+  padding: 0 8px;
+  display: flex;
 }
 article.post-card {
   background: #FFFFFF;
   border-radius: 4px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  flex: 0 0 31%;
   margin-bottom: 18px;
   transition: box-shadow 0.12s ease-in;
   display: flex;
   flex-flow: column;
   justify-content: center;
+  flex: 1 0;
 }
 article.post-card-placeholder {
   flex: 0 0 31%;
@@ -316,6 +325,15 @@ article.post-card a.post-card-link {
   flex-flow: column;
   justify-content: center;
 }
+article.post-card .post-card-image {
+  height: 120px;
+  border-radius: 4px 4px 0 0;
+  background-position: center;
+  background-size: cover;
+}
+article.post-card.large .post-card-image {
+  height: 240px;
+}
 article.post-card .title {
   font-size: 1.0em;
   margin: 0.2em 0;
@@ -326,6 +344,10 @@ article.post-card .date {
   margin: 0.4em 0;
   text-align: center;
   text-transform: uppercase;
+}
+article.post-card .post-card-content {
+  border-radius: 4px;
+  padding: 16px 24px;
 }
 article.post-card .post-card-content {
   border-radius: 4px;
