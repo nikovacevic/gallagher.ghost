@@ -1,6 +1,6 @@
 {{!< default}}
 {{#post}}
-<main class="blog">
+<main class="blog" style="padding-bottom: 20px;">
   {{#get "posts" slug="blog" as |post|}}
     {{#if post}}
       {{#post}}
@@ -10,7 +10,7 @@
       {{/post}}
     {{/if}}
   {{/get}}
-  {{#get "posts"}}
+  {{#get "posts" limit="10"}}
     <div class="container card-container flex-grow" style="margin-top: 20px;">
       {{#foreach posts}}
         {{#if @first}}
@@ -40,8 +40,6 @@
           </article>
         {{/if}}
       {{/foreach}}
-      <article class="post-card-placeholder">
-      <article class="post-card-placeholder">
     </div>
   {{/get}}
 </main>

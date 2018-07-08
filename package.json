@@ -10,5 +10,8 @@
     "email": "nikovacevic@gmail.com",
     "url": "https://nikovacevic.io/"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "config": {
+    "posts_per_page": 10
+  }
 }

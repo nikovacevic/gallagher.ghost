@@ -275,6 +275,10 @@ section.fixed-image {
   }
 }
 
+.home-content p {
+  text-align: left;
+}
+
 .card-container {
   display: flex;
   flex-flow: row;
