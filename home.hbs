@@ -156,7 +156,6 @@
 
         // Map response into array of image data
         var images = response.data.data.map(function (entry) {
-          console.log(entry);
           return {
             href: entry.link,
             url: entry.images.standard_resolution.url,
