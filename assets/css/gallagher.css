@@ -309,7 +309,7 @@ article.post-card-placeholder {
   flex: 0 0 31%;
 }
 @media only screen and (max-width: 769px) {
-  article.post-card {
+  .card-wrapper {
     flex: 0 0 100%;
   }
 }
