@@ -3,17 +3,7 @@
   <div class="container card-container flex-grow">
     {{#foreach posts}}
       <div class="card-wrapper">
-        <article class="post-card">
-          <a class="post-card-link" href="{{url}}">
-            {{#if feature_image}}
-              <div class="post-card-image" style="background-image: url({{feature_image}});"></div>
-            {{/if}}
-            <div class="post-card-content">
-              <h2 class="title">{{title}}</h2>
-              <p class="date">{{date dateToFormat format="MMMM D, YYYY"}}</p>
-            </div>
-          </a>
-        </article>
+        {{> "post-card" }}
       </div>
     {{/foreach}}
     <article class="post-card-placeholder">

@@ -1,0 +1,14 @@
+<nav>
+  <ul id="brand" class="left">
+      <li class="nav-item"><a href="/">Clare Gallagher</a></li>
+  </ul>
+  <ul id="primary-nav" class="right d-none d-md-block">
+      {{#if @blog.navigation}}
+        {{navigation}}
+      {{/if}}
+      <li class="nav-item"><a class="toggle-menu"><i class="fas fa-bars fa-lg"></i></a></li>
+  </ul>
+  <ul id="primary-nav" class="right d-md-none">
+      <li class="nav-item"><a class="toggle-menu"><i class="fas fa-bars fa-lg"></i></a></li>
+  </ul>
+</nav>
