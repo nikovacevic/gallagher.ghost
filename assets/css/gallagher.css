@@ -1,6 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css?family=Roboto|Questrial'); */
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Roboto|Roboto+Slab');
-
 
 html {
   min-height: 100%;
@@ -24,7 +22,7 @@ body {
 }
 body.loading {
   opacity: 0;
-}
+}``
 
 p {}
 p.centered-statement {
@@ -254,6 +252,11 @@ main.post {
   margin-top: 56px;
   margin-bottom: 20px;
 }
+@media (min-width: 1200px) {
+  main.post .container {
+    max-width: 960px;
+  }
+}
 
 section.atf,
 section.fixed-image {
@@ -377,9 +380,6 @@ article.post img {
   text-align: center;
 }
 
-.post-container {
-  margin-top: -150px;
-}
 .post-container.no-image {
   margin-top: 0;
 }
@@ -387,6 +387,9 @@ article.post {
   padding: 18px 24px;
   border-radius: 4px;
   background: #FEFEFE;
+}
+article.post p {
+  line-height: 1.8;
 }
 
 .next-prev {
