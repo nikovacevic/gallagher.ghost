@@ -297,6 +297,10 @@ main.blog .card-container {
   padding: 0 8px;
   display: flex;
 }
+article h1,
+article h2 {
+  text-transform: uppercase;
+}
 article.post-card {
   background: #FFFFFF;
   border-radius: 4px;
