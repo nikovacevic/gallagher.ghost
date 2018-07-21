@@ -379,6 +379,8 @@ article.post-card.large .post-card-content {
 }
 
 article.post img {
+  display: block;
+  padding: 10px 20px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
