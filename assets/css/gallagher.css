@@ -355,10 +355,7 @@ article.post-card .date {
 article.post-card .post-card-content {
   border-radius: 4px;
   padding: 16px 24px;
-}
-article.post-card .post-card-content {
-  border-radius: 4px;
-  padding: 16px 24px;
+  flex-grow: 1;
 }
 article.post-card.large {
   flex: 1 0 100%;
