@@ -528,8 +528,14 @@ iframe {
   }
 }
 
-.container.section.partner-logo-container {
+.container.section.partners {
   margin: 20px 0;
+}
+.partner-logo-primary {
+  flex: 0 1 auto;
+}
+.partner-logo-primary img {
+  max-width: 360px;
 }
 .partner-logo-container {
   display: flex;
