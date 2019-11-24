@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Calistoga|Merriweather+Sans|Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather');
 
 html {
   min-height: 100%;
@@ -146,10 +146,10 @@ body>header>nav {
   transition: all 0.4s;
 }
 body>header>nav #brand {
-  font-family: "Calistoga", "Helvetica Neue", Georgia, sans-serif;
+  font-family: "Merriweather", Georgia, sans-serif;
   font-weight: 700;
-  font-size: 1.1em;
-  letter-spacing: 0.5px;
+  font-size: 1.2em;
+  letter-spacing: 0px;
 }
 body>header>nav #primary-nav {
   text-transform: uppercase;
