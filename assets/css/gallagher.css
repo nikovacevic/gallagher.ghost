@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Roboto|Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Calistoga|Merriweather+Sans|Merriweather');
 
 html {
   min-height: 100%;
@@ -13,7 +13,7 @@ body {
   padding: 0;
   background-color: #FCFCFC;
   color: #303030;
-  font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Merriweather Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
@@ -22,9 +22,21 @@ body {
 }
 body.loading {
   opacity: 0;
-}``
+}
 
-p {}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Merriweather Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1 { color: #303030; font-size: 2.4em; font-weight: 700; }
+h2 { color: #303030; font-size: 2.0em; font-weight: 700; }
+h3 { color: #303030; font-size: 1.6em; }
+h4 { color: #303030; font-size: 1.2em; }
+h5 { color: #606060; font-size: 1.1em; }
+h6 { color: #606060; font-size: 1.0em; }
+
+p, ul, ol, figcaption {
+  font-family: "Merriweather", Georgia, 'Times New Roman', Times, serif;
+}
 p.centered-statement {
   width: 70%;
   font-size: 1.2em;
@@ -36,6 +48,12 @@ p.centered-statement {
     font-size: 1.1em;
     margin: 10px auto;
   }
+}
+
+figcaption {
+  font-style: italic;
+  text-align: center;
+  font-size: 0.8em;
 }
 
 a:not(.btn),
@@ -63,9 +81,6 @@ a.tile {
   padding: 0 8px;
   margin: 0;
 }
-a.tile:hover {
-  /*background: rgba(0,0,0,0.05);*/
-}
 a.tile:hover p,
 a.tile:hover h1,
 a.tile:hover h2 {
@@ -73,23 +88,8 @@ a.tile:hover h2 {
   color: #000000;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-h1 { color: #303030; font-size: 2.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; font-weight: 700; }
-h2 { color: #303030; font-size: 2.0em; letter-spacing: 0.02em; line-height: 1.2; margin: 1em 0 0.6em 0; font-weight: 700; }
-h3 { color: #303030; font-size: 1.8em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
-h4 { color: #303030; font-size: 1.4em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
-h5 { color: #606060; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
-h6 { color: #606060; font-size: 1.2em; letter-spacing: 0.02em; line-height: 1.2; margin: 0.8em 0 0.4em 0; }
-
-@media screen and (max-width: 769px) {
-  h1 { font-size: 2.0em; line-height: 1.0; margin: 1em 0 0.6em 0; }
-  h2 { font-size: 1.6em; line-height: 1.0; margin: 1em 0 0.6em 0; }
-  h3 { font-size: 1.4em; line-height: 1.0; margin: 0.8em 0 0.4em 0; }
-  h4 { font-size: 1.2em; line-height: 1.0; margin: 0.8em 0 0.4em 0; }
-  h5 { font-size: 1.1em; line-height: 1.0; margin: 0.8em 0 0.4em 0; }
-  h6 { font-size: 1.1em; line-height: 1.0; margin: 0.8em 0 0.4em 0; }
+a.btn {
+  font-family: "Merriweather Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 ul,ol {
@@ -125,20 +125,18 @@ li img {
   overflow: hidden;
 }
 
-header {
+body>header {
   display: flex;
   flex-flow: row;
   justify-content: center;
   position: fixed;
   width: 100%;
-  background: #FCFCFC;
+  background: rgba(255,255,255,0.95);
   color: #202028;
   z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
 }
-header.scrolling {
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.05);
-}
-header>nav {
+body>header>nav {
   flex: 1 1 auto;
   display: flex;
   flex-flow: row;
@@ -146,54 +144,54 @@ header>nav {
   padding: 0 12px;
   background: transparent;
   transition: all 0.4s;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 1.2px;
-  font-size: 1em;
 }
-header>nav.scrolled {}
-header>nav #brand {
-  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, sans-serif;
+body>header>nav #brand {
+  font-family: "Calistoga", "Helvetica Neue", Georgia, sans-serif;
   font-weight: 700;
+  font-size: 1.1em;
+  letter-spacing: 0.5px;
 }
-header>nav #primary-nav {
+body>header>nav #primary-nav {
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 1px;
 }
-header>nav>ul {
+body>header>nav>ul {
   margin: 0;
   padding: 0;
   list-style: none;
   background: transparent;
+  font-family: "Merriweather Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
 }
-header>nav>ul.left {
+body>header>nav>ul.left {
   display: inline-block;
 }
-header>nav>ul>li {
+body>header>nav>ul>li {
   display: inline-block;
   margin: 0;
 }
-header>nav>ul>li a,
-header>nav>ul>li button {
+body>header>nav>ul>li a,
+body>header>nav>ul>li button {
   color: #202028 !important;
   display: inline-block;
   padding: 0 24px;
-  line-height: 48px;
+  line-height: 56px;
   border: none;
   transition: all 0.2s;
   margin-top: 6px;
   border-bottom: 2px solid transparent;
 }
-header>nav>ul>li a:active,
-header>nav>ul>li a:hover,
-header>nav>ul>li a:visited {
+body>header>nav>ul>li a:active,
+body>header>nav>ul>li a:hover,
+body>header>nav>ul>li a:visited {
   color: #202028 !important;
 }
-header>nav>ul>li a:hover:not(.toggle-menu) {
+body>header>nav>ul>li a:hover:not(.toggle-menu) {
   text-decoration: none;
   border-bottom: 2px solid #202028;
 }
-header>nav>ul>li a.toggle-menu {
+body>header>nav>ul>li a.toggle-menu {
   cursor: pointer;
 }
 
@@ -205,23 +203,24 @@ nav#full-screen-nav {
   width: 100%;
   overflow: auto;
   transform: translateY(-100%);
-  transition: transform 0.4s;
-  background: #FDFDFD;
+  transition: transform 0.25s;
+  background: rgba(255,255,255,0.95);
   z-index: 999;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
   align-items: center;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Merriweather Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 nav#full-screen-nav.visible {
   transform: translateY(0);
 }
 nav#full-screen-nav ul {
   font-size: 1.2em;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-family: "Merriweather Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   margin: 20px 0 40px 0;
   padding: 0;
 }
@@ -249,8 +248,10 @@ main.index>section {
 main.blog,
 main.page,
 main.post {
-  margin-top: 56px;
   margin-bottom: 20px;
+}
+main.blog {
+  margin-top: 63.5px;
 }
 @media (min-width: 1200px) {
   main.post .container {
@@ -297,10 +298,6 @@ main.blog .card-container {
   padding: 0 8px;
   display: flex;
 }
-article h1,
-article h2 {
-  text-transform: uppercase;
-}
 article.post-card {
   background: #FFFFFF;
   border-radius: 4px;
@@ -343,14 +340,13 @@ article.post-card.large .post-card-image {
 }
 article.post-card .title {
   font-size: 1.0em;
-  margin: 0.2em 0;
+  margin-bottom: 0.4em;
   text-align: center;
 }
 article.post-card .date {
   font-size: 0.8em;
-  margin: 0.4em 0;
+  margin-bottom: 0.4em;
   text-align: center;
-  text-transform: uppercase;
 }
 article.post-card .post-card-content {
   border-radius: 4px;
@@ -360,19 +356,21 @@ article.post-card .post-card-content {
   display: flex;
   flex-flow: column;
 }
+article.post-card .post-card-content p {
+  max-width: 800px;
+  margin: 0 auto;
+}
 article.post-card.large {
   flex: 1 0 100%;
 }
 article.post-card.large .title {
-  font-size: 1.4em;
-  margin: 0.4em 0;
+  font-size: 1.6em;
+  margin-bottom: 0.2em;
   text-align: center;
 }
 article.post-card.large .date {
   font-size: 0.8em;
-  margin: 0.4em 0;
   text-align: center;
-  text-transform: uppercase;
 }
 article.post-card.large .post-card-content {
   padding: 24px 36px;
@@ -390,12 +388,21 @@ article.post img {
   margin-top: 0;
 }
 article.post {
-  padding: 18px 24px;
+  padding: 1em;
   border-radius: 4px;
   background: #FDFDFD;
 }
+article.post header {
+  padding-bottom: 1em;
+}
+article.post h1.title {
+  text-align: center;
+}
+article.post section.meta {
+  text-align: center;
+}
 article.post p {
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 .next-prev {
@@ -444,7 +451,6 @@ iframe {
 
 #instagram-feed {
   margin: 36px 0;
-  /* box-shadow: 0 -3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 .flex-gallery-container {
   display: flex;
@@ -465,7 +471,6 @@ iframe {
   flex-flow: column;
   justify-content: center;
 }
-.flex-gallery-container .flex-gallery-item a {}
 .flex-gallery-container .flex-gallery-item a div.img-container {
   display: flex;
   flex-flow: column;
@@ -488,7 +493,7 @@ iframe {
   text-align: center;
   margin: auto auto;
   color: #F0F0F0;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Merriweather Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.8em;
   text-shadow: 0 0 3px rgba(0,0,0,0.4);
   text-transform: uppercase;
@@ -503,15 +508,6 @@ iframe {
   width: 100%;
   height: auto;
   flex: 0 0 auto;
-  /* transition: box-shadow 0.2s; */
-}
-.flex-gallery-container .flex-gallery-item a:hover div.img-container img {
-  /* box-shadow:
-    0 -3px 6px rgba(0,0,0,0.16),
-    3px 0 6px rgba(0,0,0,0.16),
-    -3px 0 6px rgba(0,0,0,0.16),
-    0 3px 9px rgba(0,0,0,0.23);
-  z-index: 999; */
 }
 @media screen and (max-width: 769px) {
   .flex-gallery-container .flex-gallery-item {
@@ -554,7 +550,6 @@ iframe {
 }
 
 .social-media-nav {
-  background: #FDFDFD;
   color: #202028;
 }
 .social-media-nav li a,
@@ -568,26 +563,48 @@ iframe {
   color: #101016;
 }
 
-footer {
+body>footer {
   flex: 0 0 auto;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
 }
-footer .social-media-nav {
+body>footer .social-media-nav {
   background: #F0F0F0;
 }
-footer .social-media-nav li a,
-footer .social-media-nav li a:visited {
+body>footer .social-media-nav li a,
+body>footer .social-media-nav li a:visited {
   color: #505050;
 }
-footer .social-media-nav li a:active,
-footer .social-media-nav li a:hover {
+body>footer .social-media-nav li a:active,
+body>footer .social-media-nav li a:hover {
   color: #000000;
 }
-footer .copyright {
+body>footer .copyright {
   text-align: center;
-  font-size: 0.85em;
   color: #606060;
   margin: 40px 0 30px 0;
+}
+body>footer .copyright p {
+  font-size: 0.85em;
+  font-family: "Merriweather Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.kg-width-wide,
+.kg-width-full,
+.kg-gallery-container,
+.kg-gallery-row,
+.kg-gallery-image,
+.kg-bookmark-card,
+.kg-bookmark-container,
+.kg-bookmark-content,
+.kg-bookmark-title,
+.kg-bookmark-description,
+.kg-bookmark-metadata,
+.kg-bookmark-icon,
+.kg-bookmark-author,
+.kg-bookmark-publisher,
+.kg-bookmark-thumbnail {
+  /* These have to be here for Ghost to stop complaining. */
 }

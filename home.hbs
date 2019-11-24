@@ -1,22 +1,20 @@
 {{!< default}}
 <main class="index">
-  {{#if @blog.cover_image}}
-    <section class="atf" style="background-image: url({{@blog.cover_image}});"></section>
+  {{#if @site.cover_image}}
+    <section class="atf" style="background-image: url({{@site.cover_image}});"></section>
   {{/if}}
   <section>
     <div class="container">
       <div class="row">
         <div class="col-sm-12 text-center">
-          <p class="centered-statement">{{@blog.description}}</p>
-          {{#get "posts" slug="home" as |post|}}
-            {{#if post}}
-              {{#post}}
-                <hr style="margin: 36px 0;" />
-                <div class="home-content">
-                  {{content}}
-                </div>
-              {{/post}}
-            {{/if}}
+          <p class="centered-statement">{{@site.description}}</p>
+          {{#get "pages" slug="home" as |page|}}
+            {{#page}}
+              <hr style="margin: 36px 0;" />
+              <div class="home-content">
+                {{content}}
+              </div>
+            {{/page}}
           {{/get}}
         </div>
       </div>
@@ -35,7 +33,7 @@
                 {{/if}}
                 <div class="post-card-content">
                   <h2 class="title">{{title}}</h2>
-                  <p class="date">{{date format="MMMM D, YYYY"}}</p>
+                  <time class="date">{{date format="MMMM D, YYYY"}}</time>
                   <p>{{excerpt words="60"}}...</p>
                 </div>
               </a>
@@ -49,7 +47,7 @@
       {{/get}}
     </div>
     <p class="text-center" style="margin-top: 30px;">
-      <a href="/blog" role="button" class="btn btn-outline-dark">Check out the full blog &raquo;</a>
+      <a href="/blog" role="button" class="btn btn-outline-dark">Read the full blog</a>
     </p>
   </section>
   <section class="fixed-image" style="background-image: url('{{asset "images/home/fixed3.jpg"}}');"></section>

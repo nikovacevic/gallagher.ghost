@@ -13,10 +13,12 @@
     {{/if}}
     <div class="container post-container {{#unless feature_image}}no-image{{/unless}}">
       <article class="post {{post_class}}">
-        <h1 class="title" style="text-align: center; margin: 0.4em 0;">{{title}}</h1>
-        <section class="meta" style="text-align: center; margin: 0.6em 0; text-transform: uppercase;">
-          <time class="date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
-        </section>
+        <header>
+          <h1 class="title">{{title}}</h1>
+          <section class="meta">
+            <time class="date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
+          </section>
+        </header>
         <section class="content">
           {{content}}
         </section>
@@ -25,42 +27,42 @@
   </main>
   <div class="container">
     <aside class="next-prev">
-        {{#prev_post}}
-          <div class="prev-post" style="max-width: 50%;">
-            <div class="prev-post-card-container">
-              <article style="flex: 1 1 auto;" class="post-card">
-                {{#if feature_image}}
-                    <a class="post-card-image-link" href="{{url}}">
-                        <div class="post-card-image" style="background-image: url({{feature_image}})"></div>
-                    </a>
-                {{/if}}
-                <a class="post-card-link" href="{{url}}" style="display: flex; flex-flow: column; justify-content: space-evenly; padding: 12px;">
-                  <h2 class="title">{{title}}</h2>
-                  <p class="date">{{date format="MMMM DD, YYYY"}}</p>
-                </a>
-              </article>
-            </div>
-            <div class="prev-arrow"><i class="fas fa-chevron-left"></i> PREV</div>
+      {{#prev_post}}
+        <div class="prev-post" style="max-width: 50%;">
+          <div class="prev-post-card-container">
+            <article style="flex: 1 1 auto;" class="post-card">
+              {{#if feature_image}}
+                  <a class="post-card-image-link" href="{{url}}">
+                      <div class="post-card-image" style="background-image: url({{feature_image}})"></div>
+                  </a>
+              {{/if}}
+              <a class="post-card-link" href="{{url}}" style="display: flex; flex-flow: column; justify-content: space-evenly; padding: 12px;">
+                <h2 class="title">{{title}}</h2>
+                <time class="date">{{date format="MMMM DD, YYYY"}}</time>
+              </a>
+            </article>
           </div>
-        {{/prev_post}}
-        {{#next_post}}
-          <div class="next-post" style="max-width: 50%;">
-            <div class="next-post-card-container">
-              <article style="flex: 1 1 auto;" class="post-card">
-                {{#if feature_image}}
-                    <a class="post-card-image-link" href="{{url}}">
-                        <div class="post-card-image" style="background-image: url({{feature_image}})"></div>
-                    </a>
-                {{/if}}
-                <a class="post-card-link" href="{{url}}" style="display: flex; flex-flow: column; justify-content: space-evenly; padding: 12px;">
-                  <h2 class="title">{{title}}</h2>
-                  <p class="date">{{date format="MMMM DD, YYYY"}}</p>
-                </a>
-              </article>
-            </div>
-            <div class="next-arrow">NEXT <i class="fas fa-chevron-right"></i></div>
+          <div class="prev-arrow"><i class="fas fa-chevron-left"></i> PREV</div>
+        </div>
+      {{/prev_post}}
+      {{#next_post}}
+        <div class="next-post" style="max-width: 50%;">
+          <div class="next-post-card-container">
+            <article style="flex: 1 1 auto;" class="post-card">
+              {{#if feature_image}}
+                  <a class="post-card-image-link" href="{{url}}">
+                      <div class="post-card-image" style="background-image: url({{feature_image}})"></div>
+                  </a>
+              {{/if}}
+              <a class="post-card-link" href="{{url}}" style="display: flex; flex-flow: column; justify-content: space-evenly; padding: 12px;">
+                <h2 class="title">{{title}}</h2>
+                <time class="date">{{date format="MMMM DD, YYYY"}}</time>
+              </a>
+            </article>
           </div>
-        {{/next_post}}
+          <div class="next-arrow">NEXT <i class="fas fa-chevron-right"></i></div>
+        </div>
+      {{/next_post}}
     </aside>
   </div>
 {{/post}}
