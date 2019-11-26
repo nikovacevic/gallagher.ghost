@@ -175,7 +175,7 @@ body>header>nav>ul>li a,
 body>header>nav>ul>li button {
   color: #202028 !important;
   display: inline-block;
-  padding: 0 24px;
+  padding: 0 20px;
   line-height: 56px;
   border: none;
   transition: all 0.2s;
@@ -250,7 +250,8 @@ main.page,
 main.post {
   margin-bottom: 20px;
 }
-main.blog {
+main.blog,
+main.page {
   margin-top: 63.5px;
 }
 @media (min-width: 1200px) {
