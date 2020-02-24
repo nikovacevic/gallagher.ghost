@@ -490,7 +490,7 @@ iframe {
 .flex-gallery-container .flex-gallery-item a:hover div.img-mask {
   opacity: 1;
 }
-.flex-gallery-container .flex-gallery-item a div.img-mask .location {
+.flex-gallery-container .flex-gallery-item a div.img-mask .caption {
   text-align: center;
   margin: auto auto;
   color: #F0F0F0;
@@ -499,6 +499,7 @@ iframe {
   text-shadow: 0 0 3px rgba(0,0,0,0.4);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  padding: 2em;
 }
 .flex-gallery-container .flex-gallery-item a div.img-container {
   background-size: cover;
