@@ -69,7 +69,8 @@
   ;(function () {
     // Fetch the Instagram feed
     var fetchInstagramFeed = function (cb) {
-      var url = "https://graph.instagram.com/me/media?fields=caption,media_url,permalink&access_token=IGQVJWYTEwdU1ta0d0UWxXY0xGLWdGcWZAMTnV3RV9iWGVua20tcTJWRUxaM3dXWTd3UjBMREQ5YnlvM0ZAHVVU4SXhkMjFrZAzZAmMnpXcWxDaThSTWg0N0JaRzRqTmZAwY05uLTRuSzBR"
+      var token = "IGQVJWRTM3MUZAwY21MamhqbWJyNW9oUTBUalFxcmdBWmtESzlpYWxCU0l4S3QzMXVTc24tYnE0WmRHeENOTXoyS3hzc0ZAZAelQyenVlRW1iVWtkbUFlV0RHVkw0WjAzdkJTTzhkZAHF2TFpuNkZAsSWlURgZDZD"
+      var url = "https://graph.instagram.com/me/media?fields=caption,media_url,permalink&access_token=" + token
       axios.get(url).then(function (response) {
         // Handle errors
         if (response.status != 200) {
