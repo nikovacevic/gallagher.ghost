@@ -69,7 +69,7 @@
   ;(function () {
     // Fetch the Instagram feed
     var fetchInstagramFeed = function (cb) {
-      var token = "IGQVJWRTM3MUZAwY21MamhqbWJyNW9oUTBUalFxcmdBWmtESzlpYWxCU0l4S3QzMXVTc24tYnE0WmRHeENOTXoyS3hzc0ZAZAelQyenVlRW1iVWtkbUFlV0RHVkw0WjAzdkJTTzhkZAHF2TFpuNkZAsSWlURgZDZD"
+      var token = "IGQVJYS18yMjF1NFlRbjdBLTNhSVl5UnB3Ull6Ul9WemtDd2FxNWhPa3I1ZAV9ZASHVLek44SXRqSVU1ZA051aUotSzhrZAE5aVkNTQzBPSGxPX0EwQmFRaE1Hb1FISTg1TV9ockk3Yk1FV1lqT3o1TEhBagZDZD"
       var url = "https://graph.instagram.com/me/media?fields=caption,media_url,permalink&access_token=" + token
       axios.get(url).then(function (response) {
         // Handle errors
@@ -114,7 +114,7 @@
 
       if (firstLine.length === 0) {
         return ''
-      }      
+      }
       const words = firstLine.split(' ')
       const firstWords = words.slice(0, n)
 
