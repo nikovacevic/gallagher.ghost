@@ -1,68 +1,63 @@
 {{!< default}}
+
 {{#post}}
-  <main class="post">
-    {{#if feature_image}}
-      <figure class="post-full-image" style="
-        background-image: url({{feature_image}});
-        background-size: cover;
-        background-position: center;
-        height: 66vh;
-        width: 100vw;"
-      >
-      </figure>
-    {{/if}}
-    <div class="container post-container {{#unless feature_image}}no-image{{/unless}}">
-      <article class="post {{post_class}}">
-        <header>
-          <h1 class="title">{{title}}</h1>
-          <section class="meta">
-            <time class="date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
-          </section>
-        </header>
-        <section class="content">
-          {{content}}
-        </section>
-      </article>
-    </div>
-  </main>
-  <div class="container">
-    <aside class="next-prev">
-      {{#prev_post}}
-        <div class="prev-post" style="max-width: 50%;">
-          <div class="prev-post-card-container">
-            <article style="flex: 1 1 auto;" class="post-card">
-              {{#if feature_image}}
-                  <a class="post-card-image-link" href="{{url}}">
-                      <div class="post-card-image" style="background-image: url({{feature_image}})"></div>
-                  </a>
-              {{/if}}
-              <a class="post-card-link" href="{{url}}" style="display: flex; flex-flow: column; justify-content: space-evenly; padding: 12px;">
-                <h2 class="title">{{title}}</h2>
-                <time class="date">{{date format="MMMM DD, YYYY"}}</time>
-              </a>
-            </article>
-          </div>
-          <div class="prev-arrow"><i class="fas fa-chevron-left"></i> PREV</div>
-        </div>
-      {{/prev_post}}
-      {{#next_post}}
-        <div class="next-post" style="max-width: 50%;">
-          <div class="next-post-card-container">
-            <article style="flex: 1 1 auto;" class="post-card">
-              {{#if feature_image}}
-                  <a class="post-card-image-link" href="{{url}}">
-                      <div class="post-card-image" style="background-image: url({{feature_image}})"></div>
-                  </a>
-              {{/if}}
-              <a class="post-card-link" href="{{url}}" style="display: flex; flex-flow: column; justify-content: space-evenly; padding: 12px;">
-                <h2 class="title">{{title}}</h2>
-                <time class="date">{{date format="MMMM DD, YYYY"}}</time>
-              </a>
-            </article>
-          </div>
-          <div class="next-arrow">NEXT <i class="fas fa-chevron-right"></i></div>
-        </div>
-      {{/next_post}}
-    </aside>
+
+<main class="post">
+  <article class="article post {{post_class}}">
+
+    <header class="gh-grid">
+      {{#if feature_image}}
+        <figure class="gh-feature-image gh-grid-full">
+          <img
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(min-width: 1400px) 1400px, 92vw"
+            src="{{img_url feature_image size="xl"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+          />
+          {{!--
+          {{#if feature_image_caption}}
+            <figcaption>{{feature_image_caption}}</figcaption>
+          {{/if}}
+          --}}
+        </figure>
+      {{/if}}
+
+      <h1 class="gh-title">{{title}}</h1>
+
+      {{#if custom_excerpt}}
+        <p class="gh-custom-excerpt">{{custom_excerpt}}</p>
+      {{/if}}
+
+      <section class="meta">
+        <h4 class="gh-authors">{{authors}}</h4>
+        <time class="gh-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
+        <span class="gh-reading-time"> • {{reading_time}}</span>
+      </section>
+
+    </header>
+
+    <section class="gh-content gh-grid">
+      {{content}}
+    </section>
+
+  </article>
+</main>
+
+{{!-- TODO signup call to action is displayed here, unless viewed as a logged-in member --}}
+
+<aside class="read-more gh-grid">
+  <div class="post-card-container gh-grid-wide">
+    {{#get "posts" filter="id:-{{id}}" include="authors" limit="3" as |more_posts|}}
+      {{#if more_posts}}
+        {{#foreach more_posts}}
+          {{> "post-card"}}
+        {{/foreach}}
+      {{/if}}
+    {{/get}}
   </div>
+</aside>
+
 {{/post}}

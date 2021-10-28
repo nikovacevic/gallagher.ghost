@@ -1,0 +1,32 @@
+{{!< default}}
+
+<main class="blog tag">
+
+  {{#tag}}
+  <section class="tag-header gh-grid">
+    <div class="gh-grid-wide">
+      <h2 class="tag-title">{{name}}</h2>
+      <p>
+      {{#if description}}
+      {{description}}
+      {{else}}
+      A collection of {{plural ../pagination.total empty='zero posts' singular='% post' plural='% posts'}}
+      {{/if}}
+      </p>
+    </div>
+  </section>
+  {{/tag}}
+
+  <div class="gh-grid">
+    <div class="post-card-container gh-grid-wide">
+    {{#foreach posts}}
+      {{> "post-card"}}
+    {{/foreach}}
+    </div>
+  </div>
+
+  <div class="gh-grid">
+    {{pagination}}
+  </div>
+
+</main>

@@ -1,39 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122768164-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-122768164-1');
-    </script>
+    <!-- TODO PanelBear -->
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrap.min.css"}}" />
+
     <link rel="stylesheet" type="text/css" href="{{asset "css/fontawesome-all.min.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/gallagher.css"}}" />
+
     {{ghost_head}}
+
     <title>{{meta_title}}</title>
   </head>
+
   <body class="{{body_class}} loading">
-    <header>
-      {{> "header-nav" }}
-    </header>
-    {{> "full-screen-nav" }}
-    {{{body}}}
-    <footer>
-      {{> "social-nav" }}
-      <div class="copyright">
-        <p>Copyright © 2018, Clare Gallagher</p>
-        <p>Made by <a href="https://nikovacevic.io/" target="_blank">Niko</a> using <a href="https://ghost.org/" target="_blank">Ghost</a></p>
+    <div class="viewport">
+
+      <header class="site-header">
+        <nav class="site-header-nav">
+          <div class="site-header-nav-title">
+            <a href="{{@site.url}}">
+              {{@site.title}}
+            </a>
+            <a class="site-header-burger" role="button">
+              <div class="site-header-burger-box">
+                <div class="site-header-burger-inner"></div>
+              </div>
+            </a>
+          </div>
+          <div class="site-header-nav-menu">
+            {{navigation}}
+          </div>
+          <div class="site-header-nav-actions">
+            {{#unless @member}}
+              <a class="site-header-nav-button" href="#/portal/signup">Subscribe</a>
+            {{else}}
+              <a class="site-header-nav-button" href="#/portal/account">Account</a>
+            {{/unless}}
+          </div>
+        </nav>
+      </header>
+
+      <div class="gh-body">
+        {{{body}}}
       </div>
-    </footer>
-    <script src="{{asset "js/jquery-3.3.1.min.js"}}"></script>
-    <script src="{{asset "js/gallagher.js"}}"></script>
-    <script src="{{asset "js/infinitescroll.js"}}"></script>
+
+      <footer class="site-footer">
+        {{> "partners" }}
+
+        {{!-- TODO --}}
+        {{!-- {{> "social-nav" }} --}}
+
+        <div class="copyright">
+          <p>Copyright © 2021, Clare Gallagher</p>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="{{asset "js/jquery-3.5.1.min.js"}}"></script>
+    <script src="{{asset "js/jquery.fitvids.js"}}"></script>
+
+    <!-- TODO -->
+    <script>
+    $(document).ready(function () {
+      // Mobile Menu Trigger
+      $('.site-header-burger').click(function () {
+        $('body').toggleClass('site-header-open');
+      });
+
+      // FitVids - Makes video embeds responsive
+      $(".gh-content").fitVids();
+    });
+    </script>
+
     {{ghost_foot}}
-  </body>
+
+</body>
+
 </html>
