@@ -1,11 +1,21 @@
 {{!< default}}
+
 {{#post}}
+
 <main class="page">
-  {{#page}}
-    <div class="container flex-grow">
+
+  <article class="article page {{post_class}}">
+    <section class="gh-content gh-grid">
+
+      <h1 class="article-title">{{title}}</h1>
+
       {{content}}
-    </div>
-  {{/page}}
+
+    </section>
+  </article>
+
   {{> "partners" }}
+
 </main>
+
 {{/post}}
