@@ -1,0 +1,63 @@
+{{!< default}}
+
+{{#post}}
+
+<main class="post">
+  <article class="article post {{post_class}}">
+
+    <header class="gh-grid">
+      {{#if feature_image}}
+        <figure class="gh-feature-image gh-grid-full">
+          <img
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(min-width: 1400px) 1400px, 92vw"
+            src="{{img_url feature_image size="xl"}}"
+            alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+          />
+          {{!--
+          {{#if feature_image_caption}}
+            <figcaption>{{feature_image_caption}}</figcaption>
+          {{/if}}
+          --}}
+        </figure>
+      {{/if}}
+
+      <h1 class="gh-title">{{title}}</h1>
+
+      {{#if custom_excerpt}}
+        <p class="gh-custom-excerpt">{{custom_excerpt}}</p>
+      {{/if}}
+
+      <section class="meta">
+        <h4 class="gh-authors">{{authors}}</h4>
+        <time class="gh-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}</time>
+        <span class="gh-reading-time"> • {{reading_time}}</span>
+      </section>
+
+    </header>
+
+    <section class="gh-content gh-grid">
+      {{content}}
+    </section>
+
+  </article>
+</main>
+
+{{!-- TODO signup call to action is displayed here, unless viewed as a logged-in member --}}
+
+<aside class="read-more gh-grid">
+  <div class="post-card-container gh-grid-wide">
+    {{#get "posts" filter="id:-{{id}}" include="authors" limit="3" as |more_posts|}}
+      {{#if more_posts}}
+        {{#foreach more_posts}}
+          {{> "post-card"}}
+        {{/foreach}}
+      {{/if}}
+    {{/get}}
+  </div>
+</aside>
+
+{{/post}}

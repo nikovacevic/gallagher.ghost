@@ -1,0 +1,52 @@
+{
+  "name": "gallagher",
+  "description": "Ghost theme for Clare Gallagher",
+  "demo": "https://clare.run",
+  "version": "4.0.0",
+  "engines": {
+    "ghost": ">=4.0.0",
+    "ghost-api": "v4"
+  },
+  "scripts": {
+    "test": "gscan .",
+    "zip": "zip -r gallagher-4.0.0-beta.zip . -x \"./archive/*\" \"./.git/*\" ."
+  },
+  "author": {
+    "name": "Niko Kovacevic",
+    "email": "nikovacevic@gmail.com",
+    "url": "https://nikovacevic.io/"
+  },
+  "keywords": [
+    "earthraging",
+    "ghost-theme",
+    "stoked"
+  ],
+  "license": "ISC",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/nikovacevic/gallagher.ghost.git"
+  },
+  "config": {
+    "posts_per_page": 12,
+    "image_sizes": {
+        "xxs": {
+            "width": 30
+        },
+        "xs": {
+            "width": 100
+        },
+        "s": {
+            "width": 300
+        },
+        "m": {
+            "width": 600
+        },
+        "l": {
+            "width": 1000
+        },
+        "xl": {
+            "width": 2000
+        }
+    }
+  }
+}

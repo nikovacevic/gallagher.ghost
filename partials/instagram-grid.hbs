@@ -1,0 +1,141 @@
+<div id="instagram-feed" class="flex-gallery-container">
+  <div class="flex-gallery-item">
+    <a href="#" target="_blank">
+      <div class="img-container"></div>
+      <div class="img-mask">
+        <div class="caption"></div>
+      </div>
+    </a>
+  </div>
+  <div class="flex-gallery-item">
+    <a href="#" target="_blank">
+      <div class="img-container"></div>
+      <div class="img-mask">
+        <div class="caption"></div>
+      </div>
+    </a>
+  </div>
+  <div class="flex-gallery-item">
+    <a href="#" target="_blank">
+      <div class="img-container"></div>
+      <div class="img-mask">
+        <div class="caption"></div>
+      </div>
+    </a>
+  </div>
+  <div class="flex-gallery-item">
+    <a href="#" target="_blank">
+      <div class="img-container"></div>
+      <div class="img-mask">
+        <div class="caption"></div>
+      </div>
+    </a>
+  </div>
+  <div class="flex-gallery-item">
+    <a href="#" target="_blank">
+      <div class="img-container"></div>
+      <div class="img-mask">
+        <div class="caption"></div>
+      </div>
+    </a>
+  </div>
+  <div class="flex-gallery-item">
+    <a href="#" target="_blank">
+      <div class="img-container"></div>
+      <div class="img-mask">
+        <div class="caption"></div>
+      </div>
+    </a>
+  </div>
+  <div class="flex-gallery-item d-none d-md-block">
+    <a href="#" target="_blank">
+      <div class="img-container"></div>
+      <div class="img-mask">
+        <div class="caption"></div>
+      </div>
+    </a>
+  </div>
+  <div class="flex-gallery-item d-none d-md-block">
+    <a href="#" target="_blank">
+      <div class="img-container"></div>
+      <div class="img-mask">
+        <div class="caption"></div>
+      </div>
+    </a>
+  </div>
+</div>
+<script type="text/javascript" src="{{asset "js/axios.min.js"}}"></script>
+<script type="text/javascript">
+  ;(function () {
+    // Fetch the Instagram feed
+    var fetchInstagramFeed = function (cb) {
+      var token = "IGQVJYS18yMjF1NFlRbjdBLTNhSVl5UnB3Ull6Ul9WemtDd2FxNWhPa3I1ZAV9ZASHVLek44SXRqSVU1ZA051aUotSzhrZAE5aVkNTQzBPSGxPX0EwQmFRaE1Hb1FISTg1TV9ockk3Yk1FV1lqT3o1TEhBagZDZD"
+      var url = "https://graph.instagram.com/me/media?fields=caption,media_url,permalink&access_token=" + token
+      axios.get(url).then(function (response) {
+        // Handle errors
+        if (response.status != 200) {
+          cb(null, "Failed to load Instagram feed.");
+          return;
+        }
+
+        // Map response into array of image data
+        var images = response.data.data.map(function (entry) {
+          return {
+            href: entry.permalink,
+            url: entry.media_url,
+            caption: entry.caption ? entry.caption : ""
+          };
+        });
+
+        cb(images, null);
+      });
+    }
+
+    // Populate the Instagram feed element
+    var populateInstagramGrid = function (data) {
+      var grid = document.getElementById("instagram-feed");
+      if (!grid) {
+        console.warn("No Instagram feed element in DOM");
+        return;
+      }
+
+      grid.querySelectorAll(".flex-gallery-item").forEach(function (element, i) {
+        element.querySelector("a").setAttribute("href", data[i].href);
+        element.querySelector("div.img-container").setAttribute("style", "background-image: url("+data[i].url+")");
+        element.querySelector("div.caption").innerHTML = firstWords(data[i].caption, 12);
+      });
+    }
+
+    function firstWords(str, n) {
+      let firstLine = str
+      if (str.indexOf('\n') > 0) {
+        firstLine = str.substr(0, str.indexOf('\n'))
+      }
+
+      if (firstLine.length === 0) {
+        return ''
+      }
+      const words = firstLine.split(' ')
+      const firstWords = words.slice(0, n)
+
+      if (words.length > n) {
+        return firstWords.join(' ') + '...'
+      }
+      return firstWords.join(' ')
+    }
+
+    fetchInstagramFeed(function (data, err) {
+      if (err) {
+        console.error(err);
+        document.getElementById("instagram-feed").setAttribute("style", "display: none")
+        return;
+      }
+      try {
+        populateInstagramGrid(data);
+      } catch (err) {
+        console.error(err)
+        document.getElementById("instagram-feed").setAttribute("style", "display: none")
+      }
+    });
+  })();
+</script>

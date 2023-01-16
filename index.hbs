@@ -1,0 +1,27 @@
+{{!< default}}
+
+<main class="blog">
+
+  {{#get "posts" slug="blog" as |post|}}
+    {{#if post}}
+      {{#post}}
+        <div class="blog-content">
+          {{content}}
+        </div>
+      {{/post}}
+    {{/if}}
+  {{/get}}
+
+  <div class="gh-grid">
+    <div class="post-card-container gh-grid-wide">
+    {{#foreach posts}}
+      {{> "post-card"}}
+    {{/foreach}}
+    </div>
+  </div>
+
+  <div class="gh-grid">
+    {{pagination}}
+  </div>
+
+</main>

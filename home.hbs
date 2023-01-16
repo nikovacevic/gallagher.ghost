@@ -1,0 +1,47 @@
+{{!< default}}
+
+<main class="home">
+
+  {{#if @site.cover_image}}
+    <img class="gh-cover-image"
+      srcset="{{img_url @site.cover_image size="s"}} 300w,
+              {{img_url @site.cover_image size="m"}} 600w,
+              {{img_url @site.cover_image size="l"}} 1000w,
+              {{img_url @site.cover_image size="xl"}} 2000w"
+      sizes="100vw"
+      src="{{img_url @site.cover_image size="xl"}}"
+      alt=""
+    />
+  {{/if}}
+
+  <section class="gh-description gh-grid">
+    <h3>{{@site.description}}</h3>
+  </section>
+
+  {{#get "pages" slug="home" as |page|}}
+    {{#page}}
+      <section class="gh-home-page-content gh-grid">
+        {{content}}
+      </section>
+    {{/page}}
+  {{/get}}
+
+  <section class="home-page-blog">
+    <div class="gh-grid">
+      <div class="post-card-container gh-grid-wide">
+        {{#get "posts" limit="3"}}
+          {{#foreach posts}}
+            {{> "post-card" }}
+          {{/foreach}}
+        {{/get}}
+      </div>
+    </div>
+
+    <div class="home-page-read-more">
+      <a href="/blog" role="button" class="button">Read the blog &rarr;</a>
+    </div>
+  </section>
+
+  <section class="fixed-image" style="background-image: url('{{asset "images/home/fixed3.jpg"}}');"></section>
+
+</main>
